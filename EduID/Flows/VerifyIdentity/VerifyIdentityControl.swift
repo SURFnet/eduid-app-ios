@@ -92,6 +92,23 @@ class VerifyIdentityControl: UIControl {
         button.widthToSuperview()
         button.addTarget(self, action: #selector(onButtonTouchUpInside), for: .touchUpInside)
         
+        if let subtitle {
+            let subtitleLabel = UILabel()
+            subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+            subtitleLabel.numberOfLines = 0
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .left
+            paragraphStyle.lineSpacing = 6
+            let attributedString = NSMutableAttributedString(string: subtitle, attributes: [.font: UIFont.sourceSansProRegular(size: 14), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
+            if let subtitleBoldPart {
+                attributedString.setAttributeTo(part: subtitleBoldPart, attributes: [.font: UIFont.sourceSansProBold(size: 14), .foregroundColor: UIColor.charcoalColor, .paragraphStyle: paragraphStyle])
+            }
+            subtitleLabel.attributedText = attributedString
+            subtitleLabel.sizeToFit()
+            stack.insertArrangedSubview(subtitleLabel, at: 1)
+            stack.setCustomSpacing(8, after: topHorizontalStack)
+        }
+        
         layer.borderColor = UIColor.grayGhost.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 6

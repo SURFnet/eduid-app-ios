@@ -113,6 +113,8 @@ class VerifyIdentityViewController: BaseViewController {
                 title: L.VerifyIdentity.VerifyWithAEuropianId.Title.localization,
                 icon: .verifyIdentityEuId,
                 buttonTitle: L.VerifyIdentity.VerifyWithAEuropianId.Button.localization,
+                subtitle: L.VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full.localization,
+                subtitleBoldPart: L.VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart.localization,
                 buttonIcon: .verifyButtonEidas,
                 clickHandler: { [weak self] control in
                     guard let self else {

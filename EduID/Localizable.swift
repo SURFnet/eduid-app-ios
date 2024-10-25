@@ -6834,6 +6834,24 @@ public struct L {
                 translationKey: "VerifyIdentity.VerifyWithAEuropianId.Button.COPY",
                 translationArgs: []
             )
+            public struct Subtitle {
+                public static let Full = LocaliciousData(
+                    accessibilityIdentifier: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full.COPY",
+                    translationArgs: []
+                )
+                public static let BoldPart = LocaliciousData(
+                    accessibilityIdentifier: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart.COPY",
+                    translationArgs: []
+                )
+            }
         }
         public static let OtherOptions = LocaliciousData(
             accessibilityIdentifier: "VerifyIdentity.OtherOptions",
