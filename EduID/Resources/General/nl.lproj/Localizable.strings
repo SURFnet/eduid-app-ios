@@ -814,6 +814,8 @@ We sturen je een code om je nummer te verifiëren.
 "VerifyIdentity.VerifyWithBankingApp.Button.COPY" = "Selecteer je bank";
 "VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verifieer met een Europees ID";
 "VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Selecteer een Europees ID";
+"VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full.COPY" = "Dit kan met de inlogmiddelen van België, Denemarken, Duitsland, Estland, Italië, Kroatië, Litouwen, Letland, Liechtenstein, Luxemburg, Malta, Oostenrijk, Polen, Portugal, Slowakije, Slovenië, Spanje, Tsjechië en Zweden";
+"VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart.COPY" = "België, Denemarken, Duitsland, Estland, Italië, Kroatië, Litouwen, Letland, Liechtenstein, Luxemburg, Malta, Oostenrijk, Polen, Portugal, Slowakije, Slovenië, Spanje, Tsjechië en Zweden";
 "VerifyIdentity.OtherOptions.COPY" = "Meer opties…";
 "VerifyIdentity.VisitSupport.Full.COPY" = "Kun je deze opties niet gebruiken, bezoek dan onze support pagina's";
 "VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pagina's";

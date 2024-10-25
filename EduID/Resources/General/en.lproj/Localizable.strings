@@ -814,6 +814,8 @@ We will text you a code to verify your number.
 "VerifyIdentity.VerifyWithBankingApp.Button.COPY" = "Select your bank";
 "VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verify with a European ID";
 "VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Use a European ID";
+"VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full.COPY" = "We support the National digital ID’s of  Belgium, Denmark, Germany, Estonia, Italy, Croatia, Lithuania, Latvia, Luxembourg, Malta, Portugal, Slovakia, Spain, Czech Republic and Sweden.";
+"VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart.COPY" = "Belgium, Denmark, Germany, Estonia, Italy, Croatia, Lithuania, Latvia, Luxembourg, Malta, Portugal, Slovakia, Spain, Czech Republic and Sweden";
 "VerifyIdentity.OtherOptions.COPY" = "Other options…";
 "VerifyIdentity.VisitSupport.Full.COPY" = "If you can’t use any of these methods, please visit our support pages";
 "VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pages";
