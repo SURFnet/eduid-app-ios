@@ -182,8 +182,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 disclaimerTitle.textColor = .textColor
                 disclaimerTitle.font = .sourceSansProSemiBold(size: 16)
                 let disclaimerButtonContainer = UIView()
-                disclaimerButtonContainer.size(CGSize(width: 250, height: 40))
-                let disclaimerButton = EduIDButton(type: .empty, buttonTitle: L.Profile.VerifyNow.Button.localization, frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 40)))
+                disclaimerButtonContainer.size(CGSize(width: 130, height: 40))
+                let disclaimerButton = EduIDButton(type: .empty, buttonTitle: L.Profile.VerifyNow.Button.localization, frame: CGRect(origin: .zero, size: CGSize(width: 130, height: 40)))
                 disclaimerButtonContainer.addSubview(disclaimerButton)
                 disclaimerButton.edgesToSuperview()
                 let loadingIndicator  = UIActivityIndicatorView()
@@ -412,11 +412,11 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 emailControl.addTarget(self, action: #selector(emailControlClicked), for: .touchUpInside)
             }
             
-            // - Role & institution header
+            // - 'Organisations' header
             
             let roleAndInstitutionHeader = UILabel()
             let roleAndInstitutionString = NSAttributedString(
-                string: L.Profile.RoleAndInstitution.localization,
+                string: L.Profile.OrganisationsHeader.localization,
                 attributes: AttributedStringHelper.attributes(
                     font: UIFont.nunitoBold(size: 22),
                     color: .primaryColor,
@@ -468,9 +468,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     actionableControl.widthToSuperview(offset: -48)
                 }
             }
-            // - add 'add institution' button
-            let addInstitutionTitle = NSMutableAttributedString(string: "\(L.Profile.AddRoleAndInstitution.localization)\n\(L.Profile.AddViaSurfconext.localization)", attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
-            addInstitutionTitle.setAttributeTo(part: L.Profile.AddViaSurfconext.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProItalic(size: 12), color: .grayGhost, lineSpacing: 6))
+            // - add 'Add an organisation' button
+            let addInstitutionTitle = NSMutableAttributedString(string: L.Profile.AddAnOrganisation.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
             addInstitutionButton = ActionableControlWithBodyAndTitle(
                 attributedBodyText: addInstitutionTitle,
                 rightIcon: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),
@@ -520,16 +519,20 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
     }
     
     @objc func addInstitutionClicked() {
-        self.addInstitutionButton.isEnabled = false
-        self.addInstitutionButton.isLoading = true
-        startLinkingInstitution()
+        if EnvironmentService.shared.isFeatureFlagEnabled(.identityVerification), let userResponse = viewModel.userResponse {
+            delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
+        } else {
+            self.addInstitutionButton.isEnabled = false
+            self.addInstitutionButton.isLoading = true
+            startLinkingInstitution()
+        }
     }
     
     @objc func verifyIdentityClicked() {
         self.verifyIdentityLoadingIndicator?.startAnimating()
         self.verifyIdentityLoadingIndicator?.isHidden = false
-        if EnvironmentService.shared.isFeatureFlagEnabled(.identityVerification) {
-            delegate?.goToVerifyYourIdentityScreen(viewController: self)
+        if EnvironmentService.shared.isFeatureFlagEnabled(.identityVerification), let userResponse = viewModel.userResponse {
+            delegate?.goToVerifyYourIdentityScreen(viewController: self, userResponse: userResponse)
         } else {
             startLinkingInstitution()
         }

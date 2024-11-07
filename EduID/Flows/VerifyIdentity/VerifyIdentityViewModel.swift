@@ -9,7 +9,17 @@ import OpenAPIClient
 
 class VerifyIdentityViewModel: NSObject {
     
+    private let userResponse: UserResponse
+    
     var dataFetchErrorClosure: ((EduIdError) -> Void)?
+    
+    var isLinkedAccount: Bool {
+        (userResponse.linkedAccounts?.count ?? 0) + (userResponse.externalLinkedAccounts?.count ?? 0) > 0
+    }
+    
+    init(userResponse: UserResponse) {
+        self.userResponse = userResponse
+    }
     
     func startLinkingInstitution(_ control: VerifyIdentityControl) {
         control.isLoading = true
