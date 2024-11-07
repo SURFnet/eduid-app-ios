@@ -15,7 +15,7 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func goToAccountLinkingErrorScreen(linkedAccountEmail: String?)
     func goToExternalAccountLinkingErrorScreen()
     func goToYourVerifiedInformationScreen(userResponse: UserResponse)
-    func goToVerifyYourIdentityScreen(viewController: UIViewController)
+    func goToVerifyYourIdentityScreen(viewController: UIViewController, userResponse: UserResponse)
     func goToSelectYourBankScreen(viewController: UIViewController)
     func goToLinkingSuccessScreen(linkedInstitution: String?, previousUserInfo: UserResponse?)
     func showConfirmEmailScreen(viewController: UIViewController, emailToVerify: String?)

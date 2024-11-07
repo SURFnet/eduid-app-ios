@@ -94,8 +94,10 @@ class PersonalInfoCoordinator: CoordinatorType, PersonalInfoViewControllerDelega
         navigationController?.pushViewController(accountLinkingErrorViewController, animated: true)
     }
     
-    func goToVerifyYourIdentityScreen(viewController: UIViewController) {
+    func goToVerifyYourIdentityScreen(viewController: UIViewController, userResponse: UserResponse) {
         let verifyYourIdentityViewController = VerifyIdentityViewController()
+        let viewModel = VerifyIdentityViewModel(userResponse: userResponse)
+        verifyYourIdentityViewController.viewModel = viewModel
         verifyYourIdentityViewController.delegate = self
         navigationController?.pushViewController(verifyYourIdentityViewController, animated: true)
     }

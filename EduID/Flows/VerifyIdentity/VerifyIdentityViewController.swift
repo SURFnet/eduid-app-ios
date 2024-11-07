@@ -13,7 +13,7 @@ class VerifyIdentityViewController: BaseViewController {
     
     private var moreOptionsExpanded = false
     
-    private var viewModel = VerifyIdentityViewModel()
+    var viewModel: VerifyIdentityViewModel!
     
     var delegate: PersonalInfoViewControllerDelegate?
     
@@ -54,22 +54,44 @@ class VerifyIdentityViewController: BaseViewController {
         scrollView.contentInsetAdjustmentBehavior = .always
         view.addSubview(scrollView)
         scrollView.edgesToSuperview()
-
-        // - Main title
-        let firstLine = L.VerifyIdentity.Title.FirstLine.localization
-        let secondLine = L.VerifyIdentity.Title.SecondLine.localization
-        let fullTitle = "\(firstLine)\n\(secondLine)"
-        let mainTitle = UILabel.posterTextLabelBicolor(text: fullTitle, size: 24, primary:  firstLine)
         
-        // - Description below title
-        let mainDescriptionParent = UIView()
-        let mainDescription = UILabel.subtitleLabel(text: L.VerifyIdentity.Subtitle.localization)
-        mainDescriptionParent.addSubview(mainDescription)
-        mainDescription.edges(to: mainDescriptionParent)
+        let mainTitle: UILabel
+        let mainDescriptionParent: UIView
+        
+        if viewModel.isLinkedAccount {
+            mainTitle = UILabel.posterTextLabelBicolor(
+                text: L.VerifyIdentity.TitleHasInternalLink.localization,
+                size: 24,
+                primary: L.VerifyIdentity.TitleHasInternalLink.localization
+            )
+            
+            // Description below title
+            mainDescriptionParent = UIView()
+            let mainDescription = UILabel.subtitleLabel(text:L.VerifyIdentity.SubtitleHasInternalLink.localization)
+            mainDescriptionParent.addSubview(mainDescription)
+            mainDescription.edges(to: mainDescriptionParent)
+        } else {
+            let firstLine = L.VerifyIdentity.Title.FirstLine.localization
+            let secondLine = L.VerifyIdentity.Title.SecondLine.localization
+            let fullTitle = "\(firstLine)\n\(secondLine)"
+            mainTitle = UILabel.posterTextLabelBicolor(text: fullTitle, size: 24, primary:  firstLine)
+            
+            // Description below title
+            mainDescriptionParent = UIView()
+            let mainDescription = UILabel.subtitleLabel(text: L.VerifyIdentity.Subtitle.localization)
+            mainDescriptionParent.addSubview(mainDescription)
+            mainDescription.edges(to: mainDescriptionParent)
+        }
         
         // Verify via dutch institution
+        let verifyInstituteButtonTitle: String
+        if viewModel.isLinkedAccount {
+            verifyInstituteButtonTitle = L.VerifyIdentity.VerifyViaDutchInstitution.TitleHasInternalLink.localization
+        } else {
+            verifyInstituteButtonTitle = L.VerifyIdentity.VerifyViaDutchInstitution.Title.localization
+        }
         let verifyViaDutchInstitution = VerifyIdentityControl(
-            title: L.VerifyIdentity.VerifyViaDutchInstitution.Title.localization,
+            title: verifyInstituteButtonTitle,
             icon: .verifyIdentityInstitution,
             buttonTitle: L.VerifyIdentity.VerifyViaDutchInstitution.Button.localization,
             buttonIcon: nil,
@@ -97,9 +119,9 @@ class VerifyIdentityViewController: BaseViewController {
         if moreOptionsExpanded {
             // Verify with banking app
             let verifyWithBankingApp = VerifyIdentityControl(
-                title: L.VerifyIdentity.VerifyWithBankingApp.Title.localization,
+                title: L.VerifyIdentity.VerifyWithBankApp.Title.localization,
                 icon: .verifyIdentityBankingApp,
-                buttonTitle: L.VerifyIdentity.VerifyWithBankingApp.Button.localization,
+                buttonTitle: L.VerifyIdentity.VerifyWithBankApp.Button.localization,
                 buttonIcon: .verifyButtonIdin,
                 clickHandler: { [weak self] _ in
                     guard let self else {
@@ -113,8 +135,6 @@ class VerifyIdentityViewController: BaseViewController {
                 title: L.VerifyIdentity.VerifyWithAEuropianId.Title.localization,
                 icon: .verifyIdentityEuId,
                 buttonTitle: L.VerifyIdentity.VerifyWithAEuropianId.Button.localization,
-                subtitle: L.VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full.localization,
-                subtitleBoldPart: L.VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart.localization,
                 buttonIcon: .verifyButtonEidas,
                 clickHandler: { [weak self] control in
                     guard let self else {
@@ -147,7 +167,7 @@ class VerifyIdentityViewController: BaseViewController {
             verifyWithBankingApp.widthToSuperview(offset: -48)
             verifyWithEuId.widthToSuperview(offset: -48)
             supportLabel.widthToSuperview(offset: -48)
-        } else {
+        } else if !viewModel.isLinkedAccount {
             let moreOptionsButton = EduIDButton(type: .ghost, buttonTitle: L.VerifyIdentity.OtherOptions.localization)
             moreOptionsButton.addTarget(self, action: #selector(expandMoreOptions), for: .touchUpInside)
             stack.addArrangedSubview(moreOptionsButton)

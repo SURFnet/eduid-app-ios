@@ -543,28 +543,20 @@ public struct L {
                 translationArgs: []
             )
         }
-        public static let AddViaSurfconext = LocaliciousData(
-            accessibilityIdentifier: "Profile.AddViaSurfconext",
+        public static let AddAnOrganisation = LocaliciousData(
+            accessibilityIdentifier: "Profile.AddAnOrganisation",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Profile.AddViaSurfconext.COPY",
+            translationKey: "Profile.AddAnOrganisation.COPY",
             translationArgs: []
         )
-        public static let AddRoleAndInstitution = LocaliciousData(
-            accessibilityIdentifier: "Profile.AddRoleAndInstitution",
+        public static let OrganisationsHeader = LocaliciousData(
+            accessibilityIdentifier: "Profile.OrganisationsHeader",
             accessibilityHintKey: nil,
             accessibilityLabelKey: nil,
             accessibilityValueKey: nil,
-            translationKey: "Profile.AddRoleAndInstitution.COPY",
-            translationArgs: []
-        )
-        public static let RoleAndInstitution = LocaliciousData(
-            accessibilityIdentifier: "Profile.RoleAndInstitution",
-            accessibilityHintKey: nil,
-            accessibilityLabelKey: nil,
-            accessibilityValueKey: nil,
-            translationKey: "Profile.RoleAndInstitution.COPY",
+            translationKey: "Profile.OrganisationsHeader.COPY",
             translationArgs: []
         )
         public static let Me = LocaliciousData(
@@ -6755,6 +6747,22 @@ public struct L {
         }
     }
     public struct VerifyIdentity {
+        public static let TitleHasInternalLink = LocaliciousData(
+            accessibilityIdentifier: "VerifyIdentity.TitleHasInternalLink",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "VerifyIdentity.TitleHasInternalLink.COPY",
+            translationArgs: []
+        )
+        public static let SubtitleHasInternalLink = LocaliciousData(
+            accessibilityIdentifier: "VerifyIdentity.SubtitleHasInternalLink",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "VerifyIdentity.SubtitleHasInternalLink.COPY",
+            translationArgs: []
+        )
         public struct Title {
             public static let FirstLine = LocaliciousData(
                 accessibilityIdentifier: "VerifyIdentity.Title.FirstLine",
@@ -6790,6 +6798,14 @@ public struct L {
                 translationKey: "VerifyIdentity.VerifyViaDutchInstitution.Title.COPY",
                 translationArgs: []
             )
+            public static let TitleHasInternalLink = LocaliciousData(
+                accessibilityIdentifier: "VerifyIdentity.VerifyViaDutchInstitution.TitleHasInternalLink",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "VerifyIdentity.VerifyViaDutchInstitution.TitleHasInternalLink.COPY",
+                translationArgs: []
+            )
             public static let Button = LocaliciousData(
                 accessibilityIdentifier: "VerifyIdentity.VerifyViaDutchInstitution.Button",
                 accessibilityHintKey: nil,
@@ -6799,21 +6815,21 @@ public struct L {
                 translationArgs: []
             )
         }
-        public struct VerifyWithBankingApp {
+        public struct VerifyWithBankApp {
             public static let Title = LocaliciousData(
-                accessibilityIdentifier: "VerifyIdentity.VerifyWithBankingApp.Title",
+                accessibilityIdentifier: "VerifyIdentity.VerifyWithBankApp.Title",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "VerifyIdentity.VerifyWithBankingApp.Title.COPY",
+                translationKey: "VerifyIdentity.VerifyWithBankApp.Title.COPY",
                 translationArgs: []
             )
             public static let Button = LocaliciousData(
-                accessibilityIdentifier: "VerifyIdentity.VerifyWithBankingApp.Button",
+                accessibilityIdentifier: "VerifyIdentity.VerifyWithBankApp.Button",
                 accessibilityHintKey: nil,
                 accessibilityLabelKey: nil,
                 accessibilityValueKey: nil,
-                translationKey: "VerifyIdentity.VerifyWithBankingApp.Button.COPY",
+                translationKey: "VerifyIdentity.VerifyWithBankApp.Button.COPY",
                 translationArgs: []
             )
         }
@@ -6834,24 +6850,6 @@ public struct L {
                 translationKey: "VerifyIdentity.VerifyWithAEuropianId.Button.COPY",
                 translationArgs: []
             )
-            public struct Subtitle {
-                public static let Full = LocaliciousData(
-                    accessibilityIdentifier: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.Full.COPY",
-                    translationArgs: []
-                )
-                public static let BoldPart = LocaliciousData(
-                    accessibilityIdentifier: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart",
-                    accessibilityHintKey: nil,
-                    accessibilityLabelKey: nil,
-                    accessibilityValueKey: nil,
-                    translationKey: "VerifyIdentity.VerifyWithAEuropianId.Subtitle.BoldPart.COPY",
-                    translationArgs: []
-                )
-            }
         }
         public static let OtherOptions = LocaliciousData(
             accessibilityIdentifier: "VerifyIdentity.OtherOptions",
