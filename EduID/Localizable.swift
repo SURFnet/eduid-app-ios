@@ -515,6 +515,42 @@ public struct L {
             translationKey: "YourVerifiedInformation.FromYourEduID.COPY",
             translationArgs: []
         )
+        public struct ConfirmRemoval {
+            public static let Title = LocaliciousData(
+                accessibilityIdentifier: "YourVerifiedInformation.ConfirmRemoval.Title",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "YourVerifiedInformation.ConfirmRemoval.Title.COPY",
+                translationArgs: []
+            )
+            public static let Description = LocaliciousData(
+                accessibilityIdentifier: "YourVerifiedInformation.ConfirmRemoval.Description",
+                accessibilityHintKey: nil,
+                accessibilityLabelKey: nil,
+                accessibilityValueKey: nil,
+                translationKey: "YourVerifiedInformation.ConfirmRemoval.Description.COPY",
+                translationArgs: []
+            )
+            public struct Button {
+                public static let Cancel = LocaliciousData(
+                    accessibilityIdentifier: "YourVerifiedInformation.ConfirmRemoval.Button.Cancel",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "YourVerifiedInformation.ConfirmRemoval.Button.Cancel.COPY",
+                    translationArgs: []
+                )
+                public static let YesDelete = LocaliciousData(
+                    accessibilityIdentifier: "YourVerifiedInformation.ConfirmRemoval.Button.YesDelete",
+                    accessibilityHintKey: nil,
+                    accessibilityLabelKey: nil,
+                    accessibilityValueKey: nil,
+                    translationKey: "YourVerifiedInformation.ConfirmRemoval.Button.YesDelete.COPY",
+                    translationArgs: []
+                )
+            }
+        }
     }
     public struct Profile {
         public static let YouAreLoggedIn = LocaliciousData(

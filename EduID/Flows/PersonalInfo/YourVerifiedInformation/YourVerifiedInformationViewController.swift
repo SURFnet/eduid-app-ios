@@ -20,6 +20,8 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
     
     private var stack: UIStackView!
     
+    private var accountToRemove: VerifiedInformationModel?
+    
     //MARK: - init
     init(viewModel: YourVerifiedInformationViewModel) {
         self.viewModel = viewModel
@@ -247,46 +249,55 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
     
     @objc func removeLinkedAccount(sender: Any) {
         let index = (sender as! UIButton).tag
-        let account = viewModel.userResponse.getAllModels()[index]
+        accountToRemove = viewModel.userResponse.getAllModels()[index]
         // - alert to confirm service removal
-        let alert = UIAlertController(
-            title: L.Profile.RemoveServicePrompt.Title.localization,
-            message: L.Profile.RemoveServicePrompt.Description.localization,
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Delete.localization, style: .destructive) { [weak self] action in
-            guard let self else {
-                return
-            }
-            viewModel.removeLinkedAccount(
-                request: account.updateRequest,
-                onRemoved: { [weak self] in
-                    guard let self else {
-                        return
-                    }
-                    self.delegate?.goBack(viewController: self)
-                },
-                onError: { [weak self] error in
-                    guard let self else {
-                        return
-                    }
-                    let alert = UIAlertController(
-                        title: L.Generic.RequestError.Title.localization,
-                        message: L.Generic.RequestError.Description(args: error.localizedFromApi).localization,
-                        preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
-                        alert.dismiss(animated: true)
-                    })
-                    self.present(alert, animated: true)
-                }
-            )
-        })
-        alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .cancel) { _ in
-            alert.dismiss(animated: true)
-        })
-        present(alert, animated: true)
+        let alert = RemovalConfirmationDialogViewController()
+        alert.delegate = self
+        navigationController?.present(alert, animated: true)
     }
     
     @objc func dismissInfoScreen() {
         delegate?.goBack(viewController: self)
+    }
+}
+
+extension YourVerifiedInformationViewController: RemovalConfirmationDialogViewControllerDelegate {
+    func onConfirm() {
+        guard let accountToRemove else {
+            assertionFailure("Could not find account to remove!")
+            return
+        }
+    
+        viewModel.removeLinkedAccount(
+            request: accountToRemove.updateRequest,
+            onRemoved: { [weak self] in
+                guard let self else {
+                    return
+                }
+                self.delegate?.goBack(viewController: self)
+            },
+            onError: { [weak self] error in
+                guard let self else {
+                    return
+                }
+                let alert = UIAlertController(
+                    title: L.Generic.RequestError.Title.localization,
+                    message: L.Generic.RequestError.Description(args: error.localizedFromApi).localization,
+                    preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: L.Generic.RequestError.CloseButton.localization, style: .default) { _ in
+                    alert.dismiss(animated: true)
+                })
+                self.present(alert, animated: true)
+            }
+        )
+        self.accountToRemove = nil
+    }
+    
+    func onCancel() {
+        accountToRemove = nil
+    }
+    
+    func dismiss(viewController: UIViewController) {
+        self.navigationController?.dismiss(animated: true)
     }
 }
