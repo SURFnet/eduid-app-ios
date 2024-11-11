@@ -53,6 +53,12 @@ existing registration
 "YourVerifiedInformation.ValidUntil.COPY" = "Valid until ";
 "YourVerifiedInformation.RemoveThisInformation.COPY" = "Remove this information";
 "YourVerifiedInformation.FromYourEduID.COPY" = " from you eduID";
+"YourVerifiedInformation.ConfirmRemoval.Title.COPY" = "Delete this information?";
+"YourVerifiedInformation.ConfirmRemoval.Description.COPY" = "Some applications you want to login to with eduID require validated information. By deleting this information you will not be able to login to those applications.
+
+ You might be prompted to validate your information again if you want to access them again.";
+"YourVerifiedInformation.ConfirmRemoval.Button.Cancel.COPY" = "Cancel";
+"YourVerifiedInformation.ConfirmRemoval.Button.YesDelete.COPY" = "Yes, delete";
 "Profile.YouAreLoggedIn.COPY" = "You are logged in";
 "Profile.ManageYourAccount.COPY" = "Manage your account";
 "Profile.AccountLinkError.Title.COPY" = "Could not retrieve URL for linking your current account.";

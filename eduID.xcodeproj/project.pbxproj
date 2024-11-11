@@ -85,6 +85,7 @@
 		4F5DC7252A4EBCE2007D6497 /* auth_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7212A4EBCE2007D6497 /* auth_config.json */; };
 		4F5DC7262A4EBCE2007D6497 /* auth_config_test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */; };
 		4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */; };
+		4F5FDAFD2CE235110074557C /* RemovalConfirmationDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5FDAFC2CE2350C0074557C /* RemovalConfirmationDialogViewController.swift */; };
 		4F6560742B6BC3CB004A303D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6560732B6BC3CB004A303D /* InfoViewController.swift */; };
 		4F6FB2792CAD8CFB005DF803 /* VerifyIdentityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */; };
 		4F7E1C442BDA5834009405A6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */; };
@@ -494,6 +495,7 @@
 		4F5DC7212A4EBCE2007D6497 /* auth_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config.json; sourceTree = "<group>"; };
 		4F5DC7222A4EBCE2007D6497 /* auth_config_test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth_config_test2.json; sourceTree = "<group>"; };
 		4F5DC7272A4EC252007D6497 /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
+		4F5FDAFC2CE2350C0074557C /* RemovalConfirmationDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovalConfirmationDialogViewController.swift; sourceTree = "<group>"; };
 		4F6560732B6BC3CB004A303D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4F6FB2782CAD8CF7005DF803 /* VerifyIdentityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityViewModel.swift; sourceTree = "<group>"; };
 		4F7E1C432BDA582F009405A6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -1066,6 +1068,14 @@
 			path = AuthConfigs;
 			sourceTree = "<group>";
 		};
+		4F5FDAFB2CE235040074557C /* RemovalConfirmationDialog */ = {
+			isa = PBXGroup;
+			children = (
+				4F5FDAFC2CE2350C0074557C /* RemovalConfirmationDialogViewController.swift */,
+			);
+			path = RemovalConfirmationDialog;
+			sourceTree = "<group>";
+		};
 		4F7FE9392CC276FD005FB257 /* ExternalAccountLinkingError */ = {
 			isa = PBXGroup;
 			children = (
@@ -1458,6 +1468,7 @@
 		4F93D4802BC8101700D92A53 /* YourVerifiedInformation */ = {
 			isa = PBXGroup;
 			children = (
+				4F5FDAFB2CE235040074557C /* RemovalConfirmationDialog */,
 				4F93D4812BC8102700D92A53 /* YourVerifiedInformationViewController.swift */,
 				4F93D4832BC814FC00D92A53 /* YourVerifiedInformationViewModel.swift */,
 			);
@@ -2172,6 +2183,7 @@
 				4FF567CC2A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift in Sources */,
 				4FF567A42A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift in Sources */,
 				4F4A3D982CAAEC2B0007FCE6 /* SelectYourBankViewController.swift in Sources */,
+				4F5FDAFD2CE235110074557C /* RemovalConfirmationDialogViewController.swift in Sources */,
 				4FF567CB2A31D32E00616341 /* PincodeBaseViewController.swift in Sources */,
 				73DD92362A334FCC0065956E /* VerifyPinCodeViewController.swift in Sources */,
 				4FF567AE2A31D32E00616341 /* ActivityCoordinatorDelegate.swift in Sources */,
