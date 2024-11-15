@@ -7062,4 +7062,22 @@ public struct L {
             translationArgs: []
         )
     }
+    public struct ReferenceNames {
+        public static let Idin = LocaliciousData(
+            accessibilityIdentifier: "ReferenceNames.Idin",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ReferenceNames.Idin.COPY",
+            translationArgs: []
+        )
+        public static let Eherkenning = LocaliciousData(
+            accessibilityIdentifier: "ReferenceNames.Eherkenning",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ReferenceNames.Eherkenning.COPY",
+            translationArgs: []
+        )
+    }
 }

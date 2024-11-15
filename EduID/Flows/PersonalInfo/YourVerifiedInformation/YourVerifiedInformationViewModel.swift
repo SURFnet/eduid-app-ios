@@ -87,7 +87,7 @@ class VerifiedInformationModel: Equatable {
         givenName = externalLinkedAccount.firstName
         familyName = externalLinkedAccount.preferredLastName ?? externalLinkedAccount.legalLastName
         dateOfBirth = externalLinkedAccount.dateOfBirth
-        providerName = externalLinkedAccount.issuer?.name ?? externalLinkedAccount.issuer?.id ?? "?"
+        providerName = externalLinkedAccount.issuer?.normalizedName ?? externalLinkedAccount.issuer?.id ?? "?"
         createdAt = externalLinkedAccount.createdAt
         expiresAt = externalLinkedAccount.expiresAt
         eduPersonAffiliations = nil

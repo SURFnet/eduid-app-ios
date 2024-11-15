@@ -241,6 +241,7 @@
 		4FDBF7532BC0414900371599 /* UpdateLinkedAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDBF7522BC0414900371599 /* UpdateLinkedAccountRequest.swift */; };
 		4FE5191A2CB7DEAC00F7F297 /* LinkingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE519192CB7DEA800F7F297 /* LinkingSuccessViewController.swift */; };
 		4FE5191C2CB7DEC900F7F297 /* LinkingSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE5191B2CB7DEC600F7F297 /* LinkingSuccessViewModel.swift */; };
+		4FE78D362CE76ABB002E7B0D /* VerifyIssuer+normalizedName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE78D352CE76AB3002E7B0D /* VerifyIssuer+normalizedName.swift */; };
 		4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */; };
 		4FEBF5402A38A22E004BF3C8 /* NameUpdatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */; };
 		4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5675A2A31D32E00616341 /* HomeViewController.swift */; };
@@ -751,6 +752,7 @@
 		4FDBF7522BC0414900371599 /* UpdateLinkedAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLinkedAccountRequest.swift; sourceTree = "<group>"; };
 		4FE519192CB7DEA800F7F297 /* LinkingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingSuccessViewController.swift; sourceTree = "<group>"; };
 		4FE5191B2CB7DEC600F7F297 /* LinkingSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingSuccessViewModel.swift; sourceTree = "<group>"; };
+		4FE78D352CE76AB3002E7B0D /* VerifyIssuer+normalizedName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerifyIssuer+normalizedName.swift"; sourceTree = "<group>"; };
 		4FEBF53D2A38A1F9004BF3C8 /* NameUpdatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewController.swift; sourceTree = "<group>"; };
 		4FEBF53F2A38A22E004BF3C8 /* NameUpdatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUpdatedViewModel.swift; sourceTree = "<group>"; };
 		4FF5675A2A31D32E00616341 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -1179,6 +1181,7 @@
 		4F909E232A31CD7E00FC1506 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4FE78D352CE76AB3002E7B0D /* VerifyIssuer+normalizedName.swift */,
 				4FA153152CC14B92001AE759 /* ImageView+downloadImage.swift */,
 				4F1F127D2CAD587B002DA23A /* String+NSRange.swift */,
 				4F909E242A31CD7E00FC1506 /* Result+Utils.swift */,
@@ -2100,6 +2103,7 @@
 				4F909EB62A31CDDC00FC1506 /* OIDExternalUserAgentIOSSafari.swift in Sources */,
 				4F909EBA2A31CDDC00FC1506 /* ActivityControlCollapsible.swift in Sources */,
 				4FF567B22A31D32E00616341 /* ActivityViewControllerDelegate.swift in Sources */,
+				4FE78D362CE76ABB002E7B0D /* VerifyIssuer+normalizedName.swift in Sources */,
 				4FF567A22A31D32E00616341 /* PersonalInfoViewModel.swift in Sources */,
 				4F909EC42A31CDDC00FC1506 /* BasicStackView.swift in Sources */,
 				4FE5191C2CB7DEC900F7F297 /* LinkingSuccessViewModel.swift in Sources */,
