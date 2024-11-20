@@ -841,3 +841,5 @@ We sturen je een code om je nummer te verifiëren.
 "ExternalAccountLinkingError.Title.COPY" = "Er is iets fout gegaan";
 "ExternalAccountLinkingError.Subtitle.COPY" = "Helaas konden we de gevraagde informatie niet ophalen.";
 "ExternalAccountLinkingError.TryAnotherOption.COPY" = "Probeer een andere optie";
+"ReferenceNames.Idin.COPY" = "iDIN";
+"ReferenceNames.Eherkenning.COPY" = "eIDAS";

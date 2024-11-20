@@ -57,7 +57,7 @@ class SelectBankOptionControl: UIControl {
         let nameLabel = UILabel()
         nameLabel.numberOfLines = 0
         nameLabel.attributedText = NSAttributedString(
-            string: issuer.name ?? "",
+            string: issuer.normalizedName ?? "",
             attributes: [
                 .font: UIFont.sourceSansProSemiBold(size: 16),
                 .foregroundColor: UIColor.backgroundColor

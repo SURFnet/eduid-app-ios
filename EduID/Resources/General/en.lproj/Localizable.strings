@@ -842,3 +842,5 @@ We will text you a code to verify your number.
 "ExternalAccountLinkingError.Title.COPY" = "Something went wrong";
 "ExternalAccountLinkingError.Subtitle.COPY" = "We’re sorry, we were unable to retrieve the requested information.";
 "ExternalAccountLinkingError.TryAnotherOption.COPY" = "Please try another option";
+"ReferenceNames.Idin.COPY" = "iDIN";
+"ReferenceNames.Eherkenning.COPY" = "eIDAS";
