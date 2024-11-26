@@ -52,7 +52,7 @@ class MyAccountViewController: UIViewController, ScreenWithScreenType {
         let createdTime: String
         if let apiCreated = viewModel.personalInfo.created {
             let createdAtDate = Date(timeIntervalSince1970: Double(apiCreated))
-            createdDate = InstitutionControlCollapsible.dateFormatter.string(from: createdAtDate)
+            createdDate = VerifiedInformationControlCollapsible.dateFormatter.string(from: createdAtDate)
             let timeFormatter = DateFormatter()
             timeFormatter.dateFormat = "HH:mm"
             createdTime = timeFormatter.string(from: createdAtDate)

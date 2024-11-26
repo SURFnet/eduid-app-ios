@@ -175,7 +175,7 @@ class LinkingSuccessViewController: BaseViewController {
                     control.widthToSuperview(offset: -48)
                 }
                 if let dateOfBirth = addedAccount.dateOfBirth {
-                    let birthdayDate = Date(timeIntervalSince1970: TimeInterval(integerLiteral: dateOfBirth))
+                    let birthdayDate = Date(timeIntervalSince1970: TimeInterval(integerLiteral: dateOfBirth / 1000))
                     let birthdayString = VerifiedInformationControlCollapsible.dateFormatter.string(from: birthdayDate)
                     let control = VerifiedInformationControlCollapsible(
                         title: birthdayString,

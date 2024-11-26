@@ -82,7 +82,7 @@ class VerifiedInformationControlCollapsible: ExpandableControl {
         } else if let leftIcon, case let LeftIconType.image(image, tintColor) = leftIcon {
             let iconImageView = UIImageView()
             iconImageView.image = image
-            iconImageView.size(CGSize(width: 24, height: 28))
+            iconImageView.size(CGSize(width: 28, height: 28))
             if let tintColor {
                 iconImageView.tintColor = tintColor
             }

@@ -177,7 +177,6 @@
 		4F909EBC2A31CDDC00FC1506 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E982A31CDDC00FC1506 /* BaseViewController.swift */; };
 		4F909EBD2A31CDDC00FC1506 /* PinTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E992A31CDDC00FC1506 /* PinTextFieldView.swift */; };
 		4F909EBE2A31CDDC00FC1506 /* InstitutionButtonControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E9A2A31CDDC00FC1506 /* InstitutionButtonControl.swift */; };
-		4F909EBF2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E9B2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift */; };
 		4F909EC02A31CDDC00FC1506 /* ScrollingTextFieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E9C2A31CDDC00FC1506 /* ScrollingTextFieldsViewController.swift */; };
 		4F909EC12A31CDDC00FC1506 /* InstitutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E9D2A31CDDC00FC1506 /* InstitutionView.swift */; };
 		4F909EC22A31CDDC00FC1506 /* AnimatedVStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F909E9E2A31CDDC00FC1506 /* AnimatedVStackView.swift */; };
@@ -633,7 +632,6 @@
 		4F909E982A31CDDC00FC1506 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4F909E992A31CDDC00FC1506 /* PinTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinTextFieldView.swift; sourceTree = "<group>"; };
 		4F909E9A2A31CDDC00FC1506 /* InstitutionButtonControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitutionButtonControl.swift; sourceTree = "<group>"; };
-		4F909E9B2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitutionControlCollapsible.swift; sourceTree = "<group>"; };
 		4F909E9C2A31CDDC00FC1506 /* ScrollingTextFieldsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingTextFieldsViewController.swift; sourceTree = "<group>"; };
 		4F909E9D2A31CDDC00FC1506 /* InstitutionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitutionView.swift; sourceTree = "<group>"; };
 		4F909E9E2A31CDDC00FC1506 /* AnimatedVStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedVStackView.swift; sourceTree = "<group>"; };
@@ -1340,7 +1338,6 @@
 				4F909E982A31CDDC00FC1506 /* BaseViewController.swift */,
 				4F909E992A31CDDC00FC1506 /* PinTextFieldView.swift */,
 				4F909E9A2A31CDDC00FC1506 /* InstitutionButtonControl.swift */,
-				4F909E9B2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift */,
 				4F909E9C2A31CDDC00FC1506 /* ScrollingTextFieldsViewController.swift */,
 				4F909E9D2A31CDDC00FC1506 /* InstitutionView.swift */,
 				4F909E9E2A31CDDC00FC1506 /* AnimatedVStackView.swift */,
@@ -2129,7 +2126,6 @@
 				4FEBF53E2A38A1F9004BF3C8 /* NameUpdatedViewController.swift in Sources */,
 				4FF567A52A31D32E00616341 /* PersonalInfoViewControllerDelegate.swift in Sources */,
 				4FA824682B0647CE00B0D802 /* DeleteKeyConfirmationViewModel.swift in Sources */,
-				4F909EBF2A31CDDC00FC1506 /* InstitutionControlCollapsible.swift in Sources */,
 				4FF567D22A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewController.swift in Sources */,
 				4F909EBB2A31CDDC00FC1506 /* AlertMessageViewController.swift in Sources */,
 				4FF567CD2A31D32E00616341 /* CreateEduIDFirstTimeDialogViewController.swift in Sources */,

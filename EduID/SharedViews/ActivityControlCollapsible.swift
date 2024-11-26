@@ -85,7 +85,7 @@ class ActivityControlCollapsible: ExpandableControl {
         let firstLoginLabel = UILabel()
         let firstLoginString = NSMutableAttributedString()
         firstLoginString.append(NSAttributedString(string: L.DataActivity.Details.FirstLogin.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 12), color: .grayGhost, lineSpacing: 0)))
-        firstLoginString.append(NSAttributedString(string: InstitutionControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 0)))
+        firstLoginString.append(NSAttributedString(string: VerifiedInformationControlCollapsible.dateFormatter.string(from: date), attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 12), color: .grayGhost, lineSpacing: 0)))
         firstLoginLabel.attributedText = firstLoginString
         
         // Unique ID
@@ -160,7 +160,7 @@ class ActivityControlCollapsible: ExpandableControl {
             let createdAtDateString: String
             if let createdAt = accessToken.createdAt,
                let createdAtDate = ActivityControlCollapsible.isoDateFormatter.date(from: createdAt) {
-                createdAtDateString = InstitutionControlCollapsible.dateFormatter.string(from: createdAtDate)
+                createdAtDateString = VerifiedInformationControlCollapsible.dateFormatter.string(from: createdAtDate)
             } else {
                 createdAtDateString = "-"
             }
@@ -173,7 +173,7 @@ class ActivityControlCollapsible: ExpandableControl {
             let expireDateString: String
             if let expiresIn = accessToken.expiresIn,
                let expiresInDate = ActivityControlCollapsible.isoDateFormatter.date(from: expiresIn) {
-                expireDateString = InstitutionControlCollapsible.dateFormatter.string(from: expiresInDate)
+                expireDateString = VerifiedInformationControlCollapsible.dateFormatter.string(from: expiresInDate)
             } else {
                 expireDateString = "-"
             }

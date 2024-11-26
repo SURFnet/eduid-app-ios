@@ -65,7 +65,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
         scrollView.edgesToSuperview()
 
         // - Main title
-        let mainTitle = UILabel.posterTextLabelBicolor(text: L.YourVerifiedInformation.Title.localization, size: 24, primary:  L.Profile.Title.localization)
+        let mainTitle = UILabel.posterTextLabelBicolor(text: L.YourVerifiedInformation.Title.localization, size: 24, primary:  L.YourVerifiedInformation.Title.localization)
         
         // - Description below title
         let mainDescriptionParent = UIView()
@@ -107,6 +107,7 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
         
         let selectedGivenName = userResponse?.givenName
         let selectedFamilyName = userResponse?.familyName
+        let selectedDateOfBirth = userResponse?.dateOfBirth
         
         // From institution header
         for linkedAccount in (userResponse?.getAllModels() ?? []) {
@@ -182,24 +183,37 @@ class YourVerifiedInformationViewController: UIViewController, ScreenWithScreenT
                 stack.addArrangedSubview(verifiedFamilyNameControl)
                 verifiedFamilyNameControl.widthToSuperview(offset: -48)
             }
+            // Birth date
+            if let dateOfBirth = linkedAccount.dateOfBirth {
+                let birthdayDate = Date(timeIntervalSince1970: TimeInterval(integerLiteral: dateOfBirth / 1000))
+                let birthdayString = VerifiedInformationControlCollapsible.dateFormatter.string(from: birthdayDate)
+                let dateOfBirthControl = VerifiedInformationControlCollapsible(
+                    title: birthdayString,
+                    subtitle: L.Profile.VerifiedDateOfBirth.localization,
+                    model: linkedAccount,
+                    manageVerifiedInformationAction: nil,
+                    expandable: false,
+                    rightIcon: dateOfBirth == selectedDateOfBirth ? .wallet : nil
+                )
+                stack.addArrangedSubview(dateOfBirthControl)
+                dateOfBirthControl.widthToSuperview(offset: -48)
+            }
             // Affiliations
             for affiliation in linkedAccount.eduPersonAffiliations ?? [] {
                 let role: String
                 if affiliation.contains("@") {
-                    role = affiliation.components(separatedBy: "@")[0]
+                    role = affiliation.components(separatedBy: "@")[0].capitalized
                 } else {
-                    role = affiliation
+                    role = affiliation.capitalized
                 }
-                let iconEmoji = role.lowercased() == L.Profile.Employee.localization ? "🏢️" : "🧑‍🎓"
-                let subtitle = L.YourVerifiedInformation.AtInstitution(args: linkedAccount.providerName).localization
                 let affiliationControl = VerifiedInformationControlCollapsible(
-                    title: role.capitalized,
-                    subtitle: subtitle,
+                    title: linkedAccount.providerName,
+                    subtitle: role,
                     model: linkedAccount,
-                    manageVerifiedInformationAction: nil,
+                    manageVerifiedInformationAction: {},
                     expandable: false,
-                    leftIcon: VerifiedInformationControlCollapsible.LeftIconType.emoji(iconEmoji),
-                    rightIcon: .wallet
+                    leftIcon: .image(.defaultInstitution.withRenderingMode(.alwaysTemplate), .backgroundColor),
+                    rightIcon: nil
                 )
                 stack.addArrangedSubview(affiliationControl)
                 affiliationControl.widthToSuperview(offset: -48)

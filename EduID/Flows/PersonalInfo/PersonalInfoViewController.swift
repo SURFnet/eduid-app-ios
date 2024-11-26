@@ -276,9 +276,9 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                 firstNameControl.widthToSuperview(offset: -48)
                 firstNameControl.addTarget(self, action: #selector(nameControlClicked), for: .touchUpInside)
             }
-            
             var hasVerifiedGivenName = false
             var hasVerifiedFamilyName = false
+            var hasVerifiedBirthDate = false
 
             // First name
             for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
@@ -301,10 +301,16 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                     addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, externalLinkedAccount: linkedAccount)
                     hasVerifiedFamilyName = true
                 }
+                if !hasVerifiedBirthDate, let birthDate = linkedAccount.dateOfBirth, birthDate == model.userResponse.dateOfBirth {
+                    let birthdayDate = Date(timeIntervalSince1970: TimeInterval(integerLiteral: birthDate / 1000))
+                    let birthdayString = VerifiedInformationControlCollapsible.dateFormatter.string(from: birthdayDate)
+                    addNameControlToStack(value: birthdayString, label: L.Profile.VerifiedDateOfBirth.localization, stack: stack, externalLinkedAccount: linkedAccount)
+                    hasVerifiedBirthDate = true
+                }
             }
             // It is possible that there's a verified name, but it doesn't match the one in the profile. In this case we still need to show it
             // So we go through the accounts once more, but do not check for matches anymore
-            if !hasVerifiedGivenName || !hasVerifiedFamilyName {
+            if !hasVerifiedGivenName || !hasVerifiedFamilyName || !hasVerifiedBirthDate {
                 for linkedAccount in (model.userResponse.linkedAccounts ?? []) {
                     if !hasVerifiedGivenName, let givenName = linkedAccount.givenName {
                         addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack, linkedAccount: linkedAccount)
@@ -324,21 +330,11 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
                         addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack, externalLinkedAccount: linkedAccount)
                         hasVerifiedFamilyName = true
                     }
-                }
-            }
-            // Now also search in external linked accounts
-            for linkedAccount in (model.userResponse.externalLinkedAccounts ?? []) {
-                if !hasVerifiedGivenName,
-                   let givenName = linkedAccount.firstName,
-                   givenName == model.userResponse.givenName  {
-                    addNameControlToStack(value: givenName, label: L.Profile.VerifiedGivenName.localization, stack: stack)
-                    hasVerifiedGivenName = true
-                }
-                if !hasVerifiedFamilyName,
-                   let familyName = linkedAccount.legalLastName ?? linkedAccount.preferredLastName,
-                   familyName == model.userResponse.familyName  {
-                    addNameControlToStack(value: familyName, label: L.Profile.VerifiedFamilyName.localization, stack: stack)
-                    hasVerifiedFamilyName = true
+                    if !hasVerifiedBirthDate, let birthDate = linkedAccount.dateOfBirth {
+                        let birthdayDate = Date(timeIntervalSince1970: TimeInterval(integerLiteral: birthDate / 1000))
+                        let birthdayString = VerifiedInformationControlCollapsible.dateFormatter.string(from: birthdayDate)
+                        addNameControlToStack(value: birthdayString, label: L.Profile.VerifiedDateOfBirth.localization, stack: stack, externalLinkedAccount: linkedAccount)
+                    }
                 }
             }
             // If there's not verified family name at all, we show the self-asserted one
@@ -430,46 +426,29 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             // Add institution cards
             for (_, linkedAccount) in (model.userResponse.linkedAccounts?.enumerated() ?? [].enumerated()) {
                 for affiliation in linkedAccount.eduPersonAffiliations ?? [] {
-                    
-                    let createdAt: Date?
-                    if let apiCreated = linkedAccount.createdAt {
-                        createdAt = Date(timeIntervalSince1970: Double(apiCreated) / 1000)
+                    let role: String
+                    if affiliation.contains("@") {
+                        role = affiliation.components(separatedBy: "@")[0].capitalized
                     } else {
-                        createdAt = nil
+                        role = affiliation.capitalized
                     }
-                    let expiresAt: Date?
-                    if let apiExpiresAt = linkedAccount.expiresAt {
-                        expiresAt = Date(timeIntervalSince1970: Double(apiExpiresAt) / 1000)
-                    } else {
-                        expiresAt = nil
-                    }
-                    
-                    let actionableControl = InstitutionControlCollapsible(
-                        institution: linkedAccount.schacHomeOrganization ?? "",
-                        verifiedAt: createdAt,
-                        affiliation: affiliation,
-                        expires: expiresAt
-                    ) { [weak self] in
-                        
-                        // - alert to confirm service removal
-                        let alert = UIAlertController(
-                            title: L.Profile.RemoveServicePrompt.Title.localization,
-                            message: L.Profile.RemoveServicePrompt.Description.localization,
-                            preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Delete.localization, style: .destructive) { [weak self] action in
-                            self?.viewModel.removeLinkedAccount(linkedAccount: linkedAccount)
-                        })
-                        alert.addAction(UIAlertAction(title: L.Profile.RemoveServicePrompt.Cancel.localization, style: .cancel) { _ in
-                            alert.dismiss(animated: true)
-                        })
-                        self?.present(alert, animated: true)
-                    }
-                    stack.addArrangedSubview(actionableControl)
-                    actionableControl.widthToSuperview(offset: -48)
+                    let institutionControl = VerifiedInformationControlCollapsible(
+                        title: linkedAccount.schacHomeOrganization ?? linkedAccount.institutionIdentifier ?? "",
+                        subtitle: role,
+                        model: VerifiedInformationModel(linkedAccount: linkedAccount),
+                        manageVerifiedInformationAction: { [weak self] in
+                            self?.delegate?.goToYourVerifiedInformationScreen(userResponse: model.userResponse)
+                        },
+                        expandable: true,
+                        leftIcon: .image(.defaultInstitution.withRenderingMode(.alwaysTemplate), .backgroundColor),
+                        rightIcon: nil
+                    )
+                    stack.addArrangedSubview(institutionControl)
+                    institutionControl.widthToSuperview(offset: -48)
                 }
             }
             // - add 'Add an organisation' button
-            let addInstitutionTitle = NSMutableAttributedString(string: L.Profile.AddAnOrganisation.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProBold(size: 16), color: .grayGhost, lineSpacing: 6))
+            let addInstitutionTitle = NSMutableAttributedString(string: L.Profile.AddAnOrganisation.localization, attributes: AttributedStringHelper.attributes(font: .sourceSansProRegular(size: 16), color: .grayGhost, lineSpacing: 6))
             addInstitutionButton = ActionableControlWithBodyAndTitle(
                 attributedBodyText: addInstitutionTitle,
                 rightIcon: UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.grayGhost),
