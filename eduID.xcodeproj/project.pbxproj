@@ -216,6 +216,7 @@
 		4F958BD92A39C24600DD0779 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */; };
 		4F958BDC2A3A00C900DD0779 /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BDB2A3A00C900DD0779 /* DeleteAccountViewModel.swift */; };
 		4F958BDE2A3A00DF00DD0779 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F958BDD2A3A00DF00DD0779 /* DeleteAccountViewController.swift */; };
+		4F98B4562CF8BA1A0031DB49 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F98B4552CF8BA180031DB49 /* WebViewController.swift */; };
 		4F9D272F2A33353F00F5A6ED /* localizations.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4F9D272E2A33353F00F5A6ED /* localizations.yaml */; };
 		4F9D27312A33395C00F5A6ED /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27302A33395C00F5A6ED /* Localizable.swift */; };
 		4F9D27332A333A1B00F5A6ED /* String+Localicious.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */; };
@@ -726,6 +727,7 @@
 		4F958BD82A39C24600DD0779 /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		4F958BDB2A3A00C900DD0779 /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		4F958BDD2A3A00DF00DD0779 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		4F98B4552CF8BA180031DB49 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4F9D272E2A33353F00F5A6ED /* localizations.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = localizations.yaml; sourceTree = "<group>"; };
 		4F9D27302A33395C00F5A6ED /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4F9D27322A333A1B00F5A6ED /* String+Localicious.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localicious.swift"; sourceTree = "<group>"; };
@@ -1502,6 +1504,14 @@
 			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
+		4F98B4572CF8BA200031DB49 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				4F98B4552CF8BA180031DB49 /* WebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		4FA824642B06476600B0D802 /* DeleteKeyConfirmation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1577,6 +1587,7 @@
 		4FF567582A31D32E00616341 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4F98B4572CF8BA200031DB49 /* WebView */,
 				4F83FB0C2A4DB4F200C2930E /* EnvironmentSwitcher */,
 				7364BAC82A389AD6003FB978 /* VerifyAuthentication */,
 				73DD92302A334FCC0065956E /* VerifyPinCode */,
@@ -2119,6 +2130,7 @@
 				4FF567BF2A31D32E00616341 /* VerifyScanResultViewController.swift in Sources */,
 				4FF567D82A31D32E00616341 /* CreateEduIDCoordinator.swift in Sources */,
 				4F93D47D2BC7E5C600D92A53 /* VerifiedInformationControlCollapsible.swift in Sources */,
+				4F98B4562CF8BA1A0031DB49 /* WebViewController.swift in Sources */,
 				4FF567C32A31D32E00616341 /* CreateEduIDEnterPersonalInfoViewModel.swift in Sources */,
 				4F958BD92A39C24600DD0779 /* MyAccountViewController.swift in Sources */,
 				4F909EA82A31CDDC00FC1506 /* NSAttributedString+Styling.swift in Sources */,

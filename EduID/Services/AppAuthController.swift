@@ -152,8 +152,15 @@ public class AppAuthController: NSObject {
         return authState != nil
     }
     
-    public func authorize(viewController: UIViewController, completion: (() -> Void)? = nil) {
-        let externalUserAgent = OIDExternalUserAgentIOSSafari(presentingViewController: viewController)
+    public func authorize(
+        navigationController: UINavigationController,
+        isRegistrationFlow: Bool = false,
+        completion: (() -> Void)? = nil
+    ) {
+        let externalUserAgent = OIDExternalUserAgentUsingWebViewController(
+            navigationController: navigationController,
+            isRegistrationFlow: isRegistrationFlow
+        )
         currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, externalUserAgent: externalUserAgent) {
             [weak self] authState, error in
             guard let self else { return }

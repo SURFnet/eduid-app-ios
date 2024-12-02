@@ -65,6 +65,8 @@ enum ScreenType: Int, CaseIterable {
     case pincodeScreen
     case oneTimeCodeScreen
     
+    case webView
+    
     case none
     
     func nextCreateEduIDScreen() -> ScreenType {
@@ -181,7 +183,7 @@ enum ScreenType: Int, CaseIterable {
             addLogoTo(item: item)
             item.hidesBackButton = true
             
-            // Back button
+            // Back button with logo
         default:
             addLogoTo(item: item)
             item.hidesBackButton = true

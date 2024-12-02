@@ -59,7 +59,11 @@ class CreateEduIDCreatedViewController: CreateEduIDBaseViewController {
     @objc
     func authorize() {
         continueButton.isUserInteractionEnabled = false
-        AppAuthController.shared.authorize(viewController: self)
+        guard let navigationController else {
+            assertionFailure("Navigation controller could not be found!")
+            return
+        }
+        AppAuthController.shared.authorize(navigationController: navigationController)
         showNextScreen()
     }
 

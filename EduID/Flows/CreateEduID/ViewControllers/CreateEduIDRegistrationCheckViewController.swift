@@ -55,6 +55,17 @@ class CreateEduIDRegistrationCheckViewController: CreateEduIDBaseViewController 
                                           and: L.Security.Tiqr.AlreadyEnrolled.Description.localization, for: .deactivate)
                     } else {
                         self.showNextScreen()
+                        // Exclude this screen from the stack
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                            guard let self, let navigationController else {
+                                return
+                            }
+                            var viewControllers = navigationController.viewControllers
+                            if let currentIndex = viewControllers.firstIndex(of: self) {
+                                viewControllers.remove(at: currentIndex) // Remove the current view controller
+                            }
+                            navigationController.setViewControllers(viewControllers, animated: false)
+                        }
                     }
                 }
             }.store(in: &cancellable)
