@@ -71,11 +71,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else if (url.absoluteString.range(of: "created") != nil) {
             accountWasJustCreated = true
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+        } else if (url.absoluteString.range(of: "saml/guest-idp/magic") != nil) {
+            // Email verification URI
+            NotificationCenter.default.post(name: .onMagicLinkOpened, object: nil, userInfo: [Constants.UserInfoKey.magicLinkUrl: url])
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
-            if accountWasJustCreated == nil {
-                getAppropriateLaunchOption()
-            }
+            userDidFinishAuthentication()
             return
         } else if (url.absoluteString.range(of: "external-account-linked-error") != nil) {
             NotificationCenter.default.post(name: .externalAccountLinkError, object: nil)
@@ -95,6 +96,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 object: nil,
                 userInfo: [Constants.UserInfoKey.linkedAccountEmail: linkedAccountEmail]
             )
+        }
+    }
+    
+    public func userDidFinishAuthentication() {
+        if accountWasJustCreated == nil {
+            getAppropriateLaunchOption()
         }
     }
     

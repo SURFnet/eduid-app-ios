@@ -52,7 +52,7 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
         scanQRButton.addTarget(self, action: #selector(showScanScreen), for: .touchUpInside)
         
         //the action for this button is on CreateEduIDBaseViewController superclass
-        noEduIDYetButton.addTarget(self, action: #selector(showNextScreen(_:)), for: .touchUpInside)
+        noEduIDYetButton.addTarget(self, action: #selector(noEduIdTapped), for: .touchUpInside)
         
         // - create the stackview
         stack = AnimatedVStackView(arrangedSubviews: [logo, posterLabel, imageView, lowerSpaceView, signInButton, scanQRButton])
@@ -95,6 +95,18 @@ class CreateEduIDLandingPageViewController: CreateEduIDBaseViewController {
     }
     
     @objc func signInTapped() {
-        AppAuthController.shared.authorize(viewController: self)
+        guard let navigationController else {
+            assertionFailure("Navigation controller could not be found!")
+            return
+        }
+        AppAuthController.shared.authorize(navigationController: navigationController, isRegistrationFlow: false)
+    }
+    
+    @objc func noEduIdTapped() {
+        guard let navigationController else {
+            assertionFailure("Navigation controller could not be found!")
+            return
+        }
+        AppAuthController.shared.authorize(navigationController: navigationController, isRegistrationFlow: true)
     }
 }

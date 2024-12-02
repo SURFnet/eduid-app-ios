@@ -28,7 +28,11 @@ class CreateEduIDAddInstitutionViewController: CreateEduIDBaseViewController {
             alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
                 alert.dismiss(animated: true) {
                     if eduidError.statusCode == 401 {
-                        AppAuthController.shared.authorize(viewController: self)
+                        guard let navigationController = self.navigationController else {
+                            assertionFailure("Navigation controller could not be found!")
+                            return
+                        }
+                        AppAuthController.shared.authorize(navigationController: navigationController)
                     } else if eduidError.statusCode == -1 {
                         self.dismiss(animated: true)
                     }

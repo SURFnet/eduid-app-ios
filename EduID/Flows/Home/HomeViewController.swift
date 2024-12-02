@@ -177,7 +177,11 @@ class HomeViewController: UIViewController, ScreenWithScreenType {
     
     private func askForAuthorisationIfNeeded() -> Bool {
         if !AppAuthController.shared.isLoggedIn() {
-            AppAuthController.shared.authorize(viewController: self)
+            guard let navigationController else {
+                assertionFailure("Navigation controller could not be found!")
+                return false
+            }
+            AppAuthController.shared.authorize(navigationController: navigationController)
             return true
         }
         return false
