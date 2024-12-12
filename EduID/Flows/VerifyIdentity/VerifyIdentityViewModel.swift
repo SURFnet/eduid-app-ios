@@ -13,6 +13,8 @@ class VerifyIdentityViewModel: NSObject {
     
     var dataFetchErrorClosure: ((EduIdError) -> Void)?
     
+    var openLinkingURLClosure: ((URL) -> Void)?
+    
     var isLinkedAccount: Bool {
         (userResponse.linkedAccounts?.count ?? 0) + (userResponse.externalLinkedAccounts?.count ?? 0) > 0
     }
@@ -51,7 +53,7 @@ class VerifyIdentityViewModel: NSObject {
     @MainActor
     func openAuthUrl(_ url: URL, control: VerifyIdentityControl) {
         control.isLoading = false
-        UIApplication.shared.open(url)
+        openLinkingURLClosure?(url)
     }
     
     @MainActor
