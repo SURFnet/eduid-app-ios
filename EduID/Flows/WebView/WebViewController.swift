@@ -81,8 +81,22 @@ extension WebViewController: WKNavigationDelegate {
                 let modifiedUrl = previousUrl.replacingOccurrences(of: "/login/", with: "/request/")
                 webView.load(URLRequest(url: URL(string: modifiedUrl)!))
                 return
+            } else {
+                guard let scenedelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+                    return
+                }
+                if isAppHost(url) && scenedelegate.handleURLFromRedirect(url: url) {
+                    decisionHandler(.cancel)
+                    dismissInfoScreen()
+                    return
+                }
             }
         }
         decisionHandler(.allow)
+    }
+    
+    func isAppHost(_ url: URL) -> Bool {
+        let appHost = URL(string: EnvironmentService.shared.currentEnvironment.baseUrl)!.host
+        return url.host == appHost
     }
 }

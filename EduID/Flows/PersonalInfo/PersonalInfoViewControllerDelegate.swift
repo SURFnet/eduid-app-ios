@@ -22,4 +22,5 @@ protocol PersonalInfoViewControllerDelegate: AnyObject, NavigationDelegate {
     func shouldUpdateData() -> Bool
     func deleteStateAndGoToHome()
     func goBackToVerifyIdentityScreen()
+    func openInWebView(_ url: URL)
 }
