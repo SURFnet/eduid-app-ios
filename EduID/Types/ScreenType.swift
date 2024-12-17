@@ -183,6 +183,10 @@ enum ScreenType: Int, CaseIterable {
             addLogoTo(item: item)
             item.hidesBackButton = true
             
+        case .webView:
+            // No logo, no button
+            break
+            
             // Back button with logo
         default:
             addLogoTo(item: item)

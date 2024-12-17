@@ -51,6 +51,7 @@ class WebViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.backgroundColor = UIColor.backgroundColor
         navigationController?.setNavigationBarHidden(false, animated: true)
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissInfoScreen))
         navigationItem.leftBarButtonItem = nil
