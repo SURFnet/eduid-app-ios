@@ -64,31 +64,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         handleURLFromRedirect(url: URLContexts.first?.url)
     }
     
-    func handleURLFromRedirect(url: URL?) {
-        guard let url = url else { return }
+    func handleURLFromRedirect(url: URL?) -> Bool {
+        guard let url = url else { return false }
         if (url.absoluteString.range(of: "tiqrauth") != nil) {
             getAppropriateLaunchOption(with: url.absoluteString)
+            return true
         } else if (url.absoluteString.range(of: "created") != nil) {
             accountWasJustCreated = true
             NotificationCenter.default.post(name: .createEduIDDidReturnFromMagicLink, object: nil)
+            return true
         } else if (url.absoluteString.range(of: "saml/guest-idp/magic") != nil) {
             // Email verification URI
             NotificationCenter.default.post(name: .onMagicLinkOpened, object: nil, userInfo: [Constants.UserInfoKey.magicLinkUrl: url])
+            return true
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
             userDidFinishAuthentication()
-            return
+            return true
         } else if (url.absoluteString.range(of: "external-account-linked-error") != nil) {
             NotificationCenter.default.post(name: .externalAccountLinkError, object: nil)
+            return true
         } else if (url.absoluteString.range(of: "account-linked") != nil) {
             let linkedAccountInstitution = url.queryParameters?["institution"] ?? ""
             NotificationCenter.default.post(name: .didAddLinkedAccounts, object: nil, userInfo: [Constants.UserInfoKey.linkedAccountInstitution: linkedAccountInstitution])
+            return true
         } else if url.absoluteString.range(of: "update-email") != nil {
             NotificationCenter.default.post(name: .didUpdateEmail, object: nil, userInfo: [Constants.UserInfoKey.emailUpdateUrl: url])
+            return true
         } else if url.absoluteString.range(of: "add-password") != nil {
             NotificationCenter.default.post(name: .willAddPassword, object: nil, userInfo: [Constants.UserInfoKey.passwordChangeUrl: url])
+            return true
         } else if url.absoluteString.range(of: "reset-password") != nil {
             NotificationCenter.default.post(name: .willChangePassword, object: nil, userInfo: [Constants.UserInfoKey.passwordChangeUrl: url])
+            return true
         } else if url.absoluteString.range(of: "eppn-already-linked") != nil {
             let linkedAccountEmail = url.queryParameters?["email"] as Any
             NotificationCenter.default.post(
@@ -96,7 +104,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 object: nil,
                 userInfo: [Constants.UserInfoKey.linkedAccountEmail: linkedAccountEmail]
             )
+            return true
         }
+        return false
     }
     
     public func userDidFinishAuthentication() {

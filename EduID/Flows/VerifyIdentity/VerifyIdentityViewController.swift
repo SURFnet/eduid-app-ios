@@ -35,6 +35,31 @@ class VerifyIdentityViewController: BaseViewController {
         view.backgroundColor = .white
         
         setupUI()
+        
+        viewModel.dataFetchErrorClosure = { [weak self] eduidError in
+            guard let self else { return }
+            let alert = UIAlertController(title: eduidError.title, message: eduidError.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L.PinAndBioMetrics.OKButton.localization, style: .default) { _ in
+                alert.dismiss(animated: true) {
+                    if eduidError.statusCode == 401 {
+                        guard let navigationController = self.navigationController else {
+                            assertionFailure("Navigation controller could not be found!")
+                            return
+                        }
+                        AppAuthController.shared.authorize(navigationController: navigationController)
+                        self.dismiss(animated: false)
+                        // Go back
+                        self.delegate?.goBackToInfoScreen(updateData: true)
+                    } else if eduidError.statusCode == -1 {
+                        self.dismiss(animated: true)
+                    }
+                }
+            })
+            self.present(alert, animated: true)
+        }
+        viewModel.openLinkingURLClosure = { [weak self] url in
+            self?.delegate?.openInWebView(url)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

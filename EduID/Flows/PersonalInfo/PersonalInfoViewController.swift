@@ -559,9 +559,8 @@ class PersonalInfoViewController: UIViewController, ScreenWithScreenType {
             do {
                 let link = try await self.viewModel.getStartLinkAccount()
                 if let urlString = link?.url,
-                   let url = URL(string: urlString),
-                   UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                   let url = URL(string: urlString) {
+                    delegate?.openInWebView(url)
                 } else {
                     let alert = UIAlertController(
                         title: L.Generic.RequestError.Title.localization,

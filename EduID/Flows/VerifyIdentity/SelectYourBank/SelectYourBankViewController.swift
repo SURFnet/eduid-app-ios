@@ -28,6 +28,10 @@ class SelectYourBankViewController: BaseViewController {
                 self.handleError(error)
             }
         }
+        viewModel.urlHandler = { [weak self] url in
+            guard let delegate = self?.delegate else { return }
+            delegate.openInWebView(url)
+        }
         viewModel.fetchIssuerList()
     }
     
@@ -160,7 +164,7 @@ class SelectYourBankViewController: BaseViewController {
     
     @objc func openIdinLink() {
         if let url = URL(string: L.SelectYourBank.IdinkLink.localization) {
-            UIApplication.shared.open(url)
+            delegate?.openInWebView(url)
         }
     }
     

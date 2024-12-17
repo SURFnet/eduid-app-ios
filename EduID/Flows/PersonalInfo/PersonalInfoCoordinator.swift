@@ -156,4 +156,18 @@ extension PersonalInfoCoordinator: AccountLinkingErrorDelegate {
             personalInfoVc.addInstitutionClicked()
         }
     }
+    
+    func openInWebView(_ url: URL) {
+        guard let navigationController else { return }
+        let webViewController = WebViewController(startURL: url)
+        webViewController.modalPresentationStyle = .pageSheet
+        webViewController.isRegistrationFlow = false
+        if #available(iOS 15.0, *),
+           let sheet = navigationController.sheetPresentationController {
+            sheet.detents = [.large()]
+        }
+        let wrappingNavController = UINavigationController(rootViewController: webViewController)
+        navigationController.present(wrappingNavController, animated: true)
+
+    }
 }

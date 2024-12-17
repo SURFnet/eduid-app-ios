@@ -13,6 +13,8 @@ class SelectYourBankViewModel: NSObject {
     
     var dataHandler: ((Result<[VerifyIssuer], SelectYourBankError>) -> Void)?
     
+    var urlHandler: ((URL) -> Void)?
+    
     func fetchIssuerList() {
         Task {
             let result = await fetchIssuers()
@@ -44,7 +46,7 @@ class SelectYourBankViewModel: NSObject {
         control.isLoading = false
         switch result {
         case .success(let url):
-            UIApplication.shared.open(url)
+            urlHandler?(url)
         case .failure(let error):
             dataHandler?(.failure(error))
         }
