@@ -14,6 +14,7 @@ class WebViewController: BaseViewController {
     var isRegistrationFlow = false
     
     private var webView: WKWebView!
+    private var dontInterceptNextNavigation = false
     
     required init(startURL: URL) {
         self.startURL = startURL
@@ -46,6 +47,7 @@ class WebViewController: BaseViewController {
             return
         }
         // Navigate to the URL in our browser
+        dontInterceptNextNavigation = true
         self.webView.load(URLRequest(url: url))
     }
     
@@ -67,6 +69,11 @@ class WebViewController: BaseViewController {
 extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
         if let url = navigationAction.request.url {
+            if dontInterceptNextNavigation {
+                dontInterceptNextNavigation = false
+                decisionHandler(.allow)
+                return
+            }
             if AppAuthController.shared.isRedirectURI(url) {
                 decisionHandler(.cancel)
                 AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
