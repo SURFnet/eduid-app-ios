@@ -61,7 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        handleURLFromRedirect(url: URLContexts.first?.url)
+        _ = handleURLFromRedirect(url: URLContexts.first?.url)
     }
     
     func handleURLFromRedirect(url: URL?) -> Bool {
@@ -76,7 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else if (url.absoluteString.range(of: "saml/guest-idp/magic") != nil) {
             // Email verification URI
             NotificationCenter.default.post(name: .onMagicLinkOpened, object: nil, userInfo: [Constants.UserInfoKey.magicLinkUrl: url])
-            return true
+            return false
         } else if AppAuthController.shared.isRedirectURI(url) {
             AppAuthController.shared.tryResumeAuthorizationFlow(with: url)
             userDidFinishAuthentication()
