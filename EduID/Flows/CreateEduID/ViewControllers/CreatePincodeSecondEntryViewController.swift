@@ -17,8 +17,8 @@ class CreatePincodeSecondEntryViewController: PincodeBaseViewController {
         createPincodeViewModel.showErrorDialogClosure = { [weak self] error in
             guard let self = self else { return }
             let alert = UIAlertController(
-                title: L.Generic.RequestError.Title.localization,
-                message: error.localizedFromApi,
+                title: error.title,
+                message: error.message,
                 preferredStyle: .alert)
             alert.addAction(.init(title: L.Generic.RequestError.CloseButton.localization, style: .cancel) { _ in
                 alert.dismiss(animated: true)

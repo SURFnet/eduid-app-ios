@@ -17,11 +17,32 @@ class EduIdError: Error {
     static func from(_ error: Error) -> EduIdError {
         if let response = error as? ErrorResponse {
             switch response {
-            case let .error(statusCode, _, _, _):
+            case let .error(statusCode, data, _, _):
+                if let errorFromResponse = tryParseResponseError(data) {
+                    return errorFromResponse
+                }
                 return EduIdError.generateError(for: statusCode)
             }
         }
         return EduIdError(title: "Unknown Error", message: "An unknown error occurred.", statusCode: -1)
+    }
+    
+    private static func tryParseResponseError(_ data: Data?) -> EduIdError? {
+        guard let data else {
+            return nil
+        }
+        let decoder = JSONDecoder()
+        let errorResponse = try? decoder.decode(ErrorResponseModel.self, from: data)
+        if let title = errorResponse?.error,
+           let message = errorResponse?.message,
+           let code = errorResponse?.status {
+            return EduIdError(
+                title: title,
+                message: message,
+                statusCode: code
+            )
+        }
+        return nil
     }
     
     // Generate the appropriate error based on the status code
@@ -64,5 +85,11 @@ class EduIdError: Error {
                 statusCode: statusCode
             )
         }
+    }
+    
+    class ErrorResponseModel: Codable {
+        let error: String?
+        let message: String?
+        let status: Int?
     }
 }
