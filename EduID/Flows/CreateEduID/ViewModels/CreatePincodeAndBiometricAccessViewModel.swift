@@ -23,7 +23,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
     var showPromptUseBiometricAccessClosure: (() -> Void)?
     var biometricAccessSuccessClosure: (() -> Void)?
     var biometricAccessFailureClosure: ((Error) -> Void)?
-    var showErrorDialogClosure: ((Error) -> Void)?
+    var showErrorDialogClosure: ((EduIdError) -> Void)?
     
     var nextScreenDelegate: ShowNextScreenDelegate?
     private let biometricService = BiometricService()
@@ -41,7 +41,7 @@ final class CreatePincodeAndBiometricAccessViewModel: NSObject {
                 await requestTiqrEnroll() { [weak self] error in
                     guard let self else { return }
                     if let error {
-                        self.showErrorDialogClosure?(error)
+                        self.showErrorDialogClosure?(EduIdError.from(error))
                     } else {
                         self.showUseBiometricScreenClosure?()
                     }
