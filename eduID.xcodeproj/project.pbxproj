@@ -266,13 +266,11 @@
 		4FF567B22A31D32E00616341 /* ActivityViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567732A31D32E00616341 /* ActivityViewControllerDelegate.swift */; };
 		4FF567B32A31D32E00616341 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567742A31D32E00616341 /* ActivityCoordinator.swift */; };
 		4FF567B42A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567762A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift */; };
-		4FF567B52A31D32E00616341 /* AuthenticateWithPinViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567772A31D32E00616341 /* AuthenticateWithPinViewControllerDelegate.swift */; };
 		4FF567B62A31D32E00616341 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567792A31D32E00616341 /* ScanViewModel.swift */; };
 		4FF567B72A31D32E00616341 /* ScanViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5677A2A31D32E00616341 /* ScanViewModelDelegate.swift */; };
 		4FF567B82A31D32E00616341 /* ScanCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5677B2A31D32E00616341 /* ScanCoordinatorDelegate.swift */; };
 		4FF567B92A31D32E00616341 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5677C2A31D32E00616341 /* ConfirmViewController.swift */; };
 		4FF567BA2A31D32E00616341 /* ConfirmViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5677D2A31D32E00616341 /* ConfirmViewControllerDelegate.swift */; };
-		4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5677E2A31D32E00616341 /* AuthenticateWithPinViewController.swift */; };
 		4FF567BC2A31D32E00616341 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5677F2A31D32E00616341 /* ScanViewController.swift */; };
 		4FF567BD2A31D32E00616341 /* ScanViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567802A31D32E00616341 /* ScanViewControllerDelegate.swift */; };
 		4FF567BE2A31D32E00616341 /* ScanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF567812A31D32E00616341 /* ScanCoordinator.swift */; };
@@ -777,13 +775,11 @@
 		4FF567732A31D32E00616341 /* ActivityViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerDelegate.swift; sourceTree = "<group>"; };
 		4FF567742A31D32E00616341 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		4FF567762A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyScanResultViewControllerDelegate.swift; sourceTree = "<group>"; };
-		4FF567772A31D32E00616341 /* AuthenticateWithPinViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPinViewControllerDelegate.swift; sourceTree = "<group>"; };
 		4FF567792A31D32E00616341 /* ScanViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		4FF5677A2A31D32E00616341 /* ScanViewModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewModelDelegate.swift; sourceTree = "<group>"; };
 		4FF5677B2A31D32E00616341 /* ScanCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		4FF5677C2A31D32E00616341 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		4FF5677D2A31D32E00616341 /* ConfirmViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewControllerDelegate.swift; sourceTree = "<group>"; };
-		4FF5677E2A31D32E00616341 /* AuthenticateWithPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPinViewController.swift; sourceTree = "<group>"; };
 		4FF5677F2A31D32E00616341 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4FF567802A31D32E00616341 /* ScanViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewControllerDelegate.swift; sourceTree = "<group>"; };
 		4FF567812A31D32E00616341 /* ScanCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanCoordinator.swift; sourceTree = "<group>"; };
@@ -1670,13 +1666,11 @@
 			isa = PBXGroup;
 			children = (
 				4FF567762A31D32E00616341 /* VerifyScanResultViewControllerDelegate.swift */,
-				4FF567772A31D32E00616341 /* AuthenticateWithPinViewControllerDelegate.swift */,
 				4FF567782A31D32E00616341 /* ViewModels */,
 				4FF5677A2A31D32E00616341 /* ScanViewModelDelegate.swift */,
 				4FF5677B2A31D32E00616341 /* ScanCoordinatorDelegate.swift */,
 				4FF5677C2A31D32E00616341 /* ConfirmViewController.swift */,
 				4FF5677D2A31D32E00616341 /* ConfirmViewControllerDelegate.swift */,
-				4FF5677E2A31D32E00616341 /* AuthenticateWithPinViewController.swift */,
 				4FF5677F2A31D32E00616341 /* ScanViewController.swift */,
 				4FF567802A31D32E00616341 /* ScanViewControllerDelegate.swift */,
 				4FF567812A31D32E00616341 /* ScanCoordinator.swift */,
@@ -2179,7 +2173,6 @@
 				4FF567CA2A31D32E00616341 /* CreateEduIDWelcomeViewController.swift in Sources */,
 				4F909EB52A31CDDC00FC1506 /* BearerTokenHandler.swift in Sources */,
 				4F5DC7282A4EC252007D6497 /* EnvironmentService.swift in Sources */,
-				4FF567BB2A31D32E00616341 /* AuthenticateWithPinViewController.swift in Sources */,
 				4FAA354C2B74EF3900422949 /* AccountLinkingErrorViewController.swift in Sources */,
 				4F43556F2B596DF2000384B4 /* DeleteTokensViewController.swift in Sources */,
 				4F909EA62A31CDDC00FC1506 /* QRAnimatedTransition.swift in Sources */,
@@ -2190,7 +2183,6 @@
 				4FF567A62A31D32E00616341 /* PersonalInfoCoordinator.swift in Sources */,
 				4FF5679F2A31D32E00616341 /* HomeViewController.swift in Sources */,
 				4F909EAF2A31CDDC00FC1506 /* ScreenType.swift in Sources */,
-				4FF567B52A31D32E00616341 /* AuthenticateWithPinViewControllerDelegate.swift in Sources */,
 				4FF567CE2A31D32E00616341 /* CreateEduIDExplanationViewController.swift in Sources */,
 				4FF567CC2A31D32E00616341 /* CreateEduIDEnterSMSViewController.swift in Sources */,
 				4FF567A42A31D32E00616341 /* PersonalInfoCoordinatorDelegate.swift in Sources */,
