@@ -822,6 +822,7 @@ We will text you a code to verify your number.
 "VerifyIdentity.VerifyWithBankApp.Button.COPY" = "Select your bank";
 "VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verify with a European ID";
 "VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Use a European ID";
+"VerifyIdentity.ICantUseTheseMethods.COPY" = "I can't use these methods";
 "VerifyIdentity.OtherOptions.COPY" = "Other options…";
 "VerifyIdentity.VisitSupport.Full.COPY" = "If you can’t use any of these methods, please visit our support pages";
 "VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pages";
@@ -844,3 +845,27 @@ We will text you a code to verify your number.
 "ExternalAccountLinkingError.TryAnotherOption.COPY" = "Please try another option";
 "ReferenceNames.Idin.COPY" = "iDIN";
 "ReferenceNames.Eherkenning.COPY" = "eIDAS";
+"ConfirmIdentityWithIdIntro.Title.FirstLine.COPY" = "Confirm your identity";
+"ConfirmIdentityWithIdIntro.Title.SecondLine.COPY" = "with your ID";
+"ConfirmIdentityWithIdIntro.Description.ServiceDesk.COPY" = "You can also confirm your identity at one of our eduID Service Desks.";
+"ConfirmIdentityWithIdIntro.Description.Steps.Header.COPY" = "Follow these steps:";
+"ConfirmIdentityWithIdIntro.Description.Steps.Step1.COPY" = "Enter your full name as it appears on your ID (first and last name).";
+"ConfirmIdentityWithIdIntro.Description.Steps.Step2.COPY" = "Generate a personal verification code.";
+"ConfirmIdentityWithIdIntro.Description.Steps.Step3.COPY" = "Present your code and ID to an eduID Service Desk. They will verify your identity manually.";
+"ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.List.COPY" = "Accepted IDs:
+- Passports
+- EEA* ID cards
+- Dutch driver's licenses
+- Dutch residence permits.
+
+Please note: copies, public transport cards, and student cards are not valid IDs.
+";
+"ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.Asterisk.COPY" = "*EEA: all EU member states plus Liechtenstein, Norway, and Iceland.";
+"ConfirmIdentityWithIdIntro.EnterDetailsButton.COPY" = "Enter your details";
+"ConfirmIdentityWithIdInput.Title.FirstLine.COPY" = "Confirm your identity";
+"ConfirmIdentityWithIdInput.Title.SecondLine.COPY" = "with your ID";
+"ConfirmIdentityWithIdInput.Explanation.COPY" = "Enter your details as they appear on your ID. Names must be in Roman characters.";
+"ConfirmIdentityWithIdInput.InputField.LastName.COPY" = "Last name";
+"ConfirmIdentityWithIdInput.InputField.FirstNames.COPY" = "First name(s)";
+"ConfirmIdentityWithIdInput.InputField.DateOfBirth.COPY" = "Date of birth";
+"ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY" = "Generate verification code";
