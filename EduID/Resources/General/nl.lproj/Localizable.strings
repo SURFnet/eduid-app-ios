@@ -821,6 +821,7 @@ We sturen je een code om je nummer te verifiëren.
 "VerifyIdentity.VerifyWithBankApp.Button.COPY" = "Selecteer je bank";
 "VerifyIdentity.VerifyWithAEuropianId.Title.COPY" = "Verifieer met een Europees ID";
 "VerifyIdentity.VerifyWithAEuropianId.Button.COPY" = "Selecteer een Europees ID";
+"VerifyIdentity.ICantUseTheseMethods.COPY" = "Ik kan deze manieren niet gebruiken";
 "VerifyIdentity.OtherOptions.COPY" = "Meer opties…";
 "VerifyIdentity.VisitSupport.Full.COPY" = "Kun je deze opties niet gebruiken, bezoek dan onze support pagina's";
 "VerifyIdentity.VisitSupport.HighlightedPart.COPY" = "support pagina's";
@@ -843,3 +844,27 @@ We sturen je een code om je nummer te verifiëren.
 "ExternalAccountLinkingError.TryAnotherOption.COPY" = "Probeer een andere optie";
 "ReferenceNames.Idin.COPY" = "iDIN";
 "ReferenceNames.Eherkenning.COPY" = "eIDAS";
+"ConfirmIdentityWithIdIntro.Title.FirstLine.COPY" = "Bevestig wie je bent";
+"ConfirmIdentityWithIdIntro.Title.SecondLine.COPY" = "met je identiteitsbewijs";
+"ConfirmIdentityWithIdIntro.Description.ServiceDesk.COPY" = "Je kunt je identiteit ook bevestigen via een van onze eduID Service Desks.";
+"ConfirmIdentityWithIdIntro.Description.Steps.Header.COPY" = "Volg deze stappen:";
+"ConfirmIdentityWithIdIntro.Description.Steps.Step1.COPY" = "Vul je volledige naam in zoals die op je identiteitsbewijs staat (voornamen en achternaam).";
+"ConfirmIdentityWithIdIntro.Description.Steps.Step2.COPY" = "Genereer een persoonlijke controlecode.";
+"ConfirmIdentityWithIdIntro.Description.Steps.Step3.COPY" = "Laat je controlecode en identiteitsbewijs zien aan een eduID Service Desk. Die bevestigt zo je identiteit.";
+"ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.List.COPY" = "Geldige identiteitsbewijzen:
+-  paspoorten
+-  EEA* ID-kaarten
+-  Nederlandse rijbewijzen
+-  Nederlandse verblijfsvergunningen
+
+Let op: kopieën, OV-kaarten en studentenkaarten zijn geen geldige identiteitsbewijzen.
+";
+"ConfirmIdentityWithIdIntro.ValidDocumentsDisclaimer.Asterisk.COPY" = "*EEA: alle EU-lidstaten + Liechtenstein, Noorwegen en IJsland.";
+"ConfirmIdentityWithIdIntro.EnterDetailsButton.COPY" = "Naar gegevens invullen";
+"ConfirmIdentityWithIdInput.Title.FirstLine.COPY" = "Bevestig wie je bent";
+"ConfirmIdentityWithIdInput.Title.SecondLine.COPY" = "met je identiteitsbewijs";
+"ConfirmIdentityWithIdInput.Explanation.COPY" = "Vul je gegevens in zoals die op je identiteitsbewijs staan.";
+"ConfirmIdentityWithIdInput.InputField.LastName.COPY" = "Achternaam";
+"ConfirmIdentityWithIdInput.InputField.FirstNames.COPY" = "Voornamen";
+"ConfirmIdentityWithIdInput.InputField.DateOfBirth.COPY" = "Geboortedatum";
+"ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY" = "Genereer controlecode";
