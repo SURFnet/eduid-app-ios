@@ -869,3 +869,4 @@ Please note: copies, public transport cards, and student cards are not valid IDs
 "ConfirmIdentityWithIdInput.InputField.FirstNames.COPY" = "First name(s)";
 "ConfirmIdentityWithIdInput.InputField.DateOfBirth.COPY" = "Date of birth";
 "ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY" = "Generate verification code";
+"ConfirmIdentityWithIdInput.GenerateError.COPY" = "Could not generate control code";

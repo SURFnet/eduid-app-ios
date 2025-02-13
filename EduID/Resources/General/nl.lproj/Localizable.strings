@@ -868,3 +868,4 @@ Let op: kopieën, OV-kaarten en studentenkaarten zijn geen geldige identiteitsbe
 "ConfirmIdentityWithIdInput.InputField.FirstNames.COPY" = "Voornamen";
 "ConfirmIdentityWithIdInput.InputField.DateOfBirth.COPY" = "Geboortedatum";
 "ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY" = "Genereer controlecode";
+"ConfirmIdentityWithIdInput.GenerateError.COPY" = "Genereren van controlecode mislukt";
