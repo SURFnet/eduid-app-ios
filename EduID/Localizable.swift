@@ -7239,5 +7239,13 @@ public struct L {
             translationKey: "ConfirmIdentityWithIdInput.GenerateVerificationCodeButton.COPY",
             translationArgs: []
         )
+        public static let GenerateError = LocaliciousData(
+            accessibilityIdentifier: "ConfirmIdentityWithIdInput.GenerateError",
+            accessibilityHintKey: nil,
+            accessibilityLabelKey: nil,
+            accessibilityValueKey: nil,
+            translationKey: "ConfirmIdentityWithIdInput.GenerateError.COPY",
+            translationArgs: []
+        )
     }
 }
