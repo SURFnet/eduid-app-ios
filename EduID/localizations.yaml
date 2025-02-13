@@ -4121,4 +4121,8 @@ SHARED:
         COPY:
             en: Generate verification code
             nl: Genereer controlecode
+    GenerateError:
+      COPY:
+        en: Could not generate control code
+        nl: Genereren van controlecode mislukt
 
